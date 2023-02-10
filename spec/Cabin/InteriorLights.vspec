@@ -1,4 +1,5 @@
 #
+# (C) 
 # (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
 #
@@ -10,6 +11,9 @@
 # All interior lights and sensors
 #
 
+#
+# Non-configurable lights
+#
 IsGloveBoxOn:
   datatype: boolean
   type: actuator
@@ -18,20 +22,22 @@ IsGloveBoxOn:
 IsTrunkOn:
   datatype: boolean
   type: actuator
-  description: Is trunk light light on
+  description: Is trunk light on
+  deprecation: V3.0 moved to Vehicle.Body.Trunk.isLightOn as the Trunk is not defined as part of the Cabin.
 
 IsDomeOn:
   datatype: boolean
   type: actuator
   description: Is central dome light light on
 
-AmbientLight:
+PerceivedAmbientLight:
   datatype: uint8
   type: sensor
   unit: percent
   min: 0
   max: 100
-  description: How much ambient light is detected in cabin. 0 = No ambient light. 100 = Full brightness
+  description: The percentage of ambient light that is measured (e.g., by a sensor) inside the cabin. 0 = No ambient light. 100 = Full brightness.
+  comment: See also Vehicle.Cabin.Lights.AmbientLight, which is used for acting on the decorative coloured lights available in the cabin.
 
 LightIntensity:
   datatype: uint8
@@ -40,27 +46,69 @@ LightIntensity:
   min: 0
   max: 100
   description: Intensity of the interior lights. 0 = Off. 100 = Full brightness.
+  deprecation: V3.0 It will be removed to enable individual control of lights via the SingleConfigurableLight.vspec. 
+  comment: Use Cabin.Lights.PerceivedAmbientLight for sensing the amount of visible light. Use SingleConfigurableLight.vspec to describe other types of interior lights that can be configured.
 
-#
-# First / front row lights
-#
 Spotlight:
   type: branch
-  instances: Row[1,4]
+  instances: 
+    - Row[1,4]
+    - ["Left","Shared","Right"]
   description: Spotlight for a specific area in the vehicle.
+
+Spotlight.IsLightOn:
+  datatype: boolean
+  type: sensor
+  description: Is a light on. 0=False, 1=True.
 
 Spotlight.IsSharedOn:
   datatype: boolean
   type: sensor
   description: Is a shared light across a specific row on
+  deprecation: It will be removed. Use Vehicle.Cabin.Lights.Spotlight.Row[1..4].['Left',..].IsLightOn
 
 Spotlight.IsLeftOn:
   datatype: boolean
   type: actuator
   description: Is light on the left side switched on
+  deprecation: It will be removed. Use Vehicle.Cabin.Lights.Spotlight.Row[1..4].['Left',..].IsLightOn
 
 
 Spotlight.IsRightOn:
   datatype: boolean
   type: actuator
   description: Is light on the right side switched on
+  deprecation: It will be removed. Use Vehicle.Cabin.Lights.Spotlight.Row[1..4].['Left',..].IsLightOn
+
+#
+# Configurable lights
+#
+AmbientLight:
+  type: branch
+  instances: 
+    - Row[1,2]
+    - ["Left","Shared","Right"]
+  description: Decorative coloured light inside the cabin, usually mounted on the door, cealing, etc.
+
+AmbientLight.Intensity:
+  type: actuator
+  datatype: uint8
+  unit: percent
+  min: 0
+  max: 100
+  description: Percentage attenuation of light expressed as a fraction of the maximum intensity. 0 = Off. 100 = Full brightness.
+
+AmbientLight.RGBColor:
+  type: actuator
+  datatype: uint8[]
+  arraysize: 3
+  min: 0
+  max: 255
+  description: RGB color represented as an array of [Red, Green, Blue].
+
+AmbientLight.ColorCode:
+  type: actuator
+  datatype: uint8
+  min: 0
+  max: 100
+  description: Color represented with a custom code. User is responsible of the final mapping.

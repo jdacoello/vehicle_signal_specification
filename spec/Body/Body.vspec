@@ -51,6 +51,12 @@ Trunk.IsLocked:
   type: actuator
   description: Is trunk locked or unlocked. True = Locked. False = Unlocked.
 
+Trunk.IsLightOn:
+  datatype: boolean
+  type: actuator
+  description: Is trunk light on
+  comment: V3.0 Moved from Vehicle.Cabin.Lights.IsTrunkOn
+
 
 #
 # Horn description
