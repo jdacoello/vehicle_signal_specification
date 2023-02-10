@@ -93,6 +93,27 @@ Lights:
 # Include the lights specification and attach it under the Lights branch.x
 #include InteriorLights.vspec Lights
 
+#
+# Configurable lights
+#
+
+Spotlight:
+  type: branch
+  instances: 
+    - Row[1,4]
+    - ["Left","Shared","Right"]
+  description: Spotlight for a specific area in the vehicle.
+#include SingleConfigurableLight.vspec Spotlight
+
+
+AmbientLight:
+  type: branch
+  instances: 
+    - Row[1,2]
+    - ["Left","Right"]
+  description: Decorative coloured light inside the cabin, usually mounted on the door, cealing, etc.
+#include SingleConfigurableLight.vspec AmbientLight
+
 ##
 # Door signals and attributes
 # The default VSS (i.e. this file) assumes a vehicle with two rows of doors
