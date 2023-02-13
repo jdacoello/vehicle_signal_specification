@@ -97,22 +97,22 @@ Lights:
 # Configurable lights
 #
 
-Spotlight:
+Lights.Spotlight:
   type: branch
   instances: 
     - Row[1,4]
     - ["Left","Shared","Right"]
   description: Spotlight for a specific area in the vehicle.
-#include SingleConfigurableLight.vspec Spotlight
+#include SingleConfigurableLight.vspec Lights.Spotlight
 
 
-AmbientLight:
+Lights.AmbientLight:
   type: branch
   instances: 
     - Row[1,2]
     - ["Left","Right"]
   description: Decorative coloured light inside the cabin, usually mounted on the door, cealing, etc.
-#include SingleConfigurableLight.vspec AmbientLight
+#include SingleConfigurableLight.vspec Lights.AmbientLight
 
 ##
 # Door signals and attributes
