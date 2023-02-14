@@ -86,10 +86,10 @@ RearviewMirror.DimmingLevel:
 ##
 # Interior lights signals and sensors
 ##
-Lights:
+Light:
   type: branch
-  description: Interior lights signals and sensors.
-#include InteriorLights.vspec Lights
+  description: Light that is part of the Cabin.
+#include InteriorLights.vspec Light
 
 
 ##

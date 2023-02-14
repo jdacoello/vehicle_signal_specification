@@ -37,7 +37,7 @@ PerceivedAmbientLight:
   min: 0
   max: 100
   description: The percentage of ambient light that is measured (e.g., by a sensor) inside the cabin. 0 = No ambient light. 100 = Full brightness.
-  comment: See also Vehicle.Cabin.Lights.AmbientLight, which is used for acting on the decorative coloured lights available in the cabin.
+  comment: See also Vehicle.Cabin.Light.AmbientLight, which is used for acting on the decorative coloured lights available in the cabin.
 
 LightIntensity:
   datatype: uint8
@@ -45,9 +45,9 @@ LightIntensity:
   unit: percent
   min: 0
   max: 100
-  description: Intensity of the interior lights. 0 = Off. 100 = Full brightness.
+  description: Intensity of the interior light. 0 = Off. 100 = Full brightness.
   deprecation: V3.0 It will be removed to enable individual control of lights via the SingleConfigurableLight.vspec. 
-  comment: Use Cabin.Lights.PerceivedAmbientLight for sensing the amount of visible light. Use SingleConfigurableLight.vspec to describe other types of interior lights that can be configured.
+  comment: Use Cabin.Light.PerceivedAmbientLight for sensing the amount of visible light. Use SingleConfigurableLight.vspec to describe other types of interior lights that can be configured.
 
 
 #
