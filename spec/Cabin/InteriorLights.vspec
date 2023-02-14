@@ -1,5 +1,5 @@
 #
-# (C) 2023 BMW Group
+# (C) 2023 Bayerische Motoren Werke Aktiengesellschaft (BMW AG)
 # (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
 #
@@ -48,3 +48,36 @@ LightIntensity:
   description: Intensity of the interior lights. 0 = Off. 100 = Full brightness.
   deprecation: V3.0 It will be removed to enable individual control of lights via the SingleConfigurableLight.vspec. 
   comment: Use Cabin.Lights.PerceivedAmbientLight for sensing the amount of visible light. Use SingleConfigurableLight.vspec to describe other types of interior lights that can be configured.
+
+
+#
+# Configurable lights
+#
+Spotlight:
+  type: branch
+  instances: 
+    - Row[1,2]
+    - ["Driver","Passenger"]
+  description: Spotlight for a specific area in the vehicle.
+#include SingleConfigurableLight.vspec Spotlight
+
+
+AmbientLight:
+  type: branch
+  instances: 
+    - Row[1,2]
+    - ["Driver","Passenger"]
+  description: Decorative coloured light inside the cabin, usually mounted on the door, cealing, etc.
+#include SingleConfigurableLight.vspec AmbientLight
+
+InteractiveLightBar:
+  type: branch
+  description: Decorative coloured light bar that supports effects. It is usually mounted on the dashboard (e.g., BMW i7 Interactive bar).
+#include SingleConfigurableLight.vspec InteractiveLightBar
+
+InteractiveLightBar.Effect:
+  type: actuator
+  allowed: ['NO_EFFECT', 'GRADIENT_DRIVER', 'GRADIENT_PASSENGER']
+  datatype: string
+  description: Light effect selection.
+

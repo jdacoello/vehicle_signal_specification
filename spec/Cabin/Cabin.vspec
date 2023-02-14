@@ -89,30 +89,8 @@ RearviewMirror.DimmingLevel:
 Lights:
   type: branch
   description: Interior lights signals and sensors.
-
-# Include the lights specification and attach it under the Lights branch.x
 #include InteriorLights.vspec Lights
 
-#
-# Configurable lights
-#
-
-Lights.Spotlight:
-  type: branch
-  instances: 
-    - Row[1,4]
-    - ["Left","Shared","Right"]
-  description: Spotlight for a specific area in the vehicle.
-#include SingleConfigurableLight.vspec Lights.Spotlight
-
-
-Lights.AmbientLight:
-  type: branch
-  instances: 
-    - Row[1,2]
-    - ["Left","Right"]
-  description: Decorative coloured light inside the cabin, usually mounted on the door, cealing, etc.
-#include SingleConfigurableLight.vspec Lights.AmbientLight
 
 ##
 # Door signals and attributes
