@@ -204,10 +204,10 @@ Lights.LicensePlate:
   description: License plate lights.
 #include StaticLights.vspec Lights.LicensePlate
 
-Lights.Brake:
+Lights.Break:
   type: branch
   instance: ["Left","Right","Top"]
-#include BrakeLights.vspec Lights.Brake
+#include BreakLights.vspec Lights.Break
 
 Lights.Hazard:
   type: branch
