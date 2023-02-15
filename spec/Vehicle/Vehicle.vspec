@@ -41,6 +41,7 @@ VersionVSS.Patch:
 VersionVSS.Label:
   datatype: string
   type: attribute
+  default: 'develop'
   description: Label to further describe the version.
 
 #

@@ -26,8 +26,6 @@ Each release is incrementally numbered, starting with 1.
 
 A release is tagged in git with the tag
 
-    v[m.n]
+    v[n]
 
-where [m.n] is the release number.
-
-Detailed instructions on how releases are created can be found in the [Release Checklist](https://github.com/COVESA/vehicle_signal_specification/wiki/Release-Checklist).
+where [n] is the release number.
