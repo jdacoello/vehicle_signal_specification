@@ -2,13 +2,13 @@
 # Makefile to generate specifications
 #
 
-.PHONY: clean all travis_targets json franca yaml csv ddsidl tests binary protobuf ttl graphql ocf c install overlays
+.PHONY: clean all travis_targets json franca yaml csv ddsidl tests binary protobuf ttl graphql ocf c install
 
-all: clean json franca yaml csv ddsidl binary tests protobuf graphql overlays
+all: clean json franca yaml csv ddsidl binary tests protobuf graphql
 
 # All mandatory targets that shall be built and pass on each pull request for
 # vehicle-signal-specification or vss-tools
-travis_targets: clean json franca yaml binary csv graphql ddsidl overlays tests tar
+travis_targets: clean json franca yaml binary csv graphql ddsidl tests tar
 
 
 # Additional targets that shall be built by travis, but where it is not mandatory
@@ -36,11 +36,6 @@ csv:
 
 ddsidl:
 	${TOOLSDIR}/vspec2ddsidl.py -I ./spec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION).idl
-
-# Verifies that supported overlay combinations are syntactically correct.
-overlays:
-	${TOOLSDIR}/vspec2json.py -I ./spec -o overlays/profiles/motorbike.vspec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION)_motorbike.json
-	${TOOLSDIR}/vspec2json.py -I ./spec -o overlays/extensions/dual_wiper_systems.vspec ./spec/VehicleSignalSpecification.vspec vss_rel_$$(cat VERSION)_dualwiper.json
 
 tests:
 	PYTHONPATH=${TOOLSDIR} pytest
