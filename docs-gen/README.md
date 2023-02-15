@@ -13,9 +13,8 @@ The static page is generated with:
 - [HUGO](https://gohugo.io/)
 - [Learn Theme](https://themes.gohugo.io/hugo-theme-learn/)
 
-Please follow the [documentation](https://gohugo.io/documentation/) for installation and further questions around the framework.
-Currently, the HUGO version used for generating VSS documentation is `0.103.1`,
-as controlled by the [buildcheck.yml](https://github.com/COVESA/vehicle_signal_specification/blob/master/.github/workflows/buildcheck.yml)
+Please follow the [documentation](https://gohugo.io/documentation/) for
+installation and further questions around the framework. Currently, the minimal tested HUGO version for the VSS documentation is `0.78.1`
 
 
 ### Run the documentation server locally
@@ -50,7 +49,8 @@ page under http://localhost:1313/vehicle_signal_specification.
 
 ### Contribute
 
-If you want to contribute, do the following:
+Right now there is no pipeline in place to build the documentation. If you want
+to contribute, do the following:
 
 1. **Change documentation in ```/docs-gen```**
 
