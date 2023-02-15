@@ -184,5 +184,3 @@ Convertible.Status:
   type: sensor
   allowed: ['UNDEFINED', 'CLOSED', 'OPEN', 'CLOSING', 'OPENING', 'STALLED']
   description: Roof status on convertible vehicles.
-
-#include include/PowerOptimize.vspec
