@@ -63,14 +63,8 @@ The unit of measurement that the data entry has. See [Unit
 Type](data_unit_types/) chapter for a list of available unit types. This
 cannot be specified if ```allowed``` is defined as the signal type.
 
-**```sensor```** *[optional]* `deprecated since version 3.1`
+**```sensor```** *[optional]*  
 The sensing appliance used to produce the data entry.
 
-*The VSS signal metadata attributes `sensor` and `actuator` are no longer considered part of the core VSS syntax*
-*If needed, they shall be used as additional metadata, see [overlays](../overlay.md) *
-
-**```actuator```** *[optional]* `deprecated since version 3.1`
+**```actuator```** *[optional]*  
 The actuating appliance consuming the data entry.
-
-*The VSS signal metadata attributes `sensor` and `actuator` are no longer considered part of the core VSS syntax*
-*If needed, they shall be used as additional metadata, see [overlays](../overlay.md) *
