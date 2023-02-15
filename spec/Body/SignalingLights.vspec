@@ -1,6 +1,5 @@
-#
-# (C) 2022 Bayerische Motoren Werke Aktiengesellschaft (BMW AG) - All rights reserved.
-# 
+# (C) 2022 BMW Group - All rights reserved.
+# AUTHOR: Gerrit Grotewold BMW Group;
 
 IsSignaling:
   datatype: boolean
